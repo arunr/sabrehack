@@ -25,6 +25,7 @@ module.exports = function(app) {
         var AppCtrl = require('../controllers/app.ctrl');
         app.get('/api/v1/apps', AppCtrl.get);
         app.get('/api/v1/apps/:id', AppCtrl.getapp);
+        app.post('/api/v1/apps', AppCtrl.saveapp);
     })();
 
     //(function RecoRoutes() {
