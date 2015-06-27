@@ -4,7 +4,7 @@ twystMerchant.factory('twystRESTSvc', function ($rootScope, $http, $log, $q, $co
 
     twystRESTSvc.login = function(user) {
         var deferred = $q.defer();
-        $http.post('/api/v4/accounts/login', user).then(function(data) {
+        $http.post('/api/v1/login', user).then(function(data) {
             deferred.resolve(data.data);
         }, function(err) {
             deferred.reject(err);
@@ -17,7 +17,7 @@ twystMerchant.factory('twystRESTSvc', function ($rootScope, $http, $log, $q, $co
         var token = $cookies.get('token');
 
         if (token) {
-            $http.get('/api/v4/profile?token=' + token).then(function(data) {
+            $http.get('/api/v1/user?token=' + token).then(function(data) {
                 deferred.resolve(data.data);
             }, function(err) {
                 deferred.reject(err);
@@ -33,7 +33,7 @@ twystMerchant.factory('twystRESTSvc', function ($rootScope, $http, $log, $q, $co
         var token = $cookies.get('token');
 
         if (token) {
-            $http.get('/api/v4/outlets?token=' + token).then(function(data) {
+            $http.get('/api/v1/outlets?token=' + token).then(function(data) {
                 deferred.resolve(data.data);
             }, function(err) {
                 deferred.reject(err);
