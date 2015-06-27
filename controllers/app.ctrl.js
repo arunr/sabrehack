@@ -23,8 +23,8 @@ module.exports.get = function(req, res) {
                     tags: app.basics.tags || null,
                     categories: app.basics.categories || null,
                     rating: app.meta.rating || null,
-                    description: app.detail.description || null,
-                    itinerary: app.detail.itinerary || null
+                    description: app.details.description || null,
+                    itinerary: app.details.itinerary || null
                 }
             });
 
