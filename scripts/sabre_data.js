@@ -202,7 +202,7 @@ db.apps.insert({
             {
                 day_num: 3,
                 details: "Today is a day for a long walk through the neighbouring countryside across meadows, crossing streams and glades, and through sheep farms. Picnic lunch by a stream. Evening at the village of Leadenbrow pub."
-            }
+            },
             {
                 day_num: 4,
                 details: "Walk to the peak hill and get a wonderful view of the countryside. Visit the needlework factory. Afternoon drive back to London."
@@ -237,7 +237,7 @@ db.apps.insert({
             {
                 day_num: 2,
                 details: "Today we ride out of town into the villages near Amsterdam where we get to view age old windmills. Lunch at a village cafe and back to Amsterdam."
-            },
+            }
 
         ]
     }
@@ -268,7 +268,7 @@ db.apps.insert({
             {
                 day_num: 2,
                 details: "After breakfast visit the Roman baths and aqueducts on the outskirts of Rome."
-            },
+            }
 
         ]
     }
@@ -298,7 +298,7 @@ db.apps.insert({
                 end_hour: 21,
                 end_min: 30,
                 details: "Start your walk on the pebble beach and walk up the white chalk cliffs into the National Park. Our guide will talk to you about the historical significance of the various spots."
-            },
+            }
 
         ]
     }
