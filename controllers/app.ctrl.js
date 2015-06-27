@@ -8,15 +8,20 @@ require('../models/app.mdl.js');
 var App = mongoose.model('App');
 var Q = require('q');
 var HttpHelper = require('../common/http.hlpr');
+var Sabre = require('../config/sabre.cfg');
 
 module.exports.getapp = function(req, res) {
-    App.findOne({_id: req.params.id}, function(err, app) {
-        if (err || !app) {
-            HttpHelper.error(res, err || true, 'Failed to get apps');
-        } else {
-            console.log(app);
 
-            var fixed_app = {
+    Sabre.get('/v1/lists/supported/shop/themes', {}, function(err,data) {
+        console.log(data);
+        console.log(err);
+        App.findOne({_id: req.params.id}, function(err, app) {
+            if (err || !app) {
+                HttpHelper.error(res, err || true, 'Failed to get apps');
+            } else {
+                console.log(app);
+
+                var fixed_app = {
                     title: (app.basics && app.basics.title),
                     hours: (app.basics && app.basics.hours) || null,
                     days: (app.basics && app.basics.days) || null,
@@ -29,9 +34,11 @@ module.exports.getapp = function(req, res) {
                 };
 
 
-            HttpHelper.success(res, fixed_app, 'Returning app');
-        }
-    })
+                HttpHelper.success(res, fixed_app, 'Returning app');
+            }
+        })
+    });
+
 };
 
 module.exports.get = function(req, res) {

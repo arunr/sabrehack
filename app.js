@@ -10,6 +10,8 @@ var settings = require('./config/settings');
   require('./config/routes.cfg')(app);
   //require('./config/cache.cfg').populate();
 
+  require('./config/sabre.cfg');
+
   // START THE SERVER
   console.log('STARTING THE SABRE HACK SERVER');
   console.log('-------------------------');
