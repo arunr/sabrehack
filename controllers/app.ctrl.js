@@ -22,12 +22,11 @@ function get_flight_info(from, to, start, end) {
             deferred.reject(null);
         } else {
             var d = _.extend({}, JSON.parse(data));
-
+            console.log(JSON.stringify(d));
             var fares = _.map(d['PricedItineraries'], function(fare) {
                 return {
-                    from: from,
-                    to: to,
-                    fare: fare['AirItineraryPricingInfo']['ItinTotalFare']['FareConstruction']['Amount'] + ''
+                    name: from + "-" + to,
+                    price: fare['AirItineraryPricingInfo']['ItinTotalFare']['FareConstruction']['Amount'] + ''
                 }
             });
 
@@ -79,22 +78,21 @@ module.exports.getapp = function(req, res) {
                 var from = app.details.flights[0].from;
                 var to = app.details.flights[0].to;
                 get_flight_info(from, to, null, null).then(function(data) {
-                    fixed_app.fares = data;
+                    fixed_app.flights = data;
                     get_hotel_info().then(function(data) {
-                        fixed_app.hotel = {
+                        fixed_app.hotels = {
                             name : data.hotelName,
-                            price: data.rates[0].nightlyRates[0]
+                            price: data.rates[0].nightlyRates[0] + ''
                         };
 
                         get_events().then(function(data) {
-                            console.log(JSON.stringify(data));
-                            var tours = _.map(data.data.tours, function(tour) {
+                            var attractions = _.map(data.data.tours, function(tour) {
                                return {
                                    name : tour.title,
-                                   price: tour.price && tour.price.values && tour.price.values.amount
+                                   price: (tour.price && tour.price.values && tour.price.values.amount) + ''
                                }
                             });
-                            fixed_app.tours = tours.slice(0,3);
+                            fixed_app.attractions = attractions.slice(0,3);
                             HttpHelper.success(res, fixed_app, 'Returning app');
 
                         });
