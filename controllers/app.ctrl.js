@@ -9,6 +9,11 @@ var App = mongoose.model('App');
 var Q = require('q');
 var HttpHelper = require('../common/http.hlpr');
 
+module.exports.getapp = function(req, res) {
+    console.log(req.params);
+    HttpHelper.success(res, null, null);
+};
+
 module.exports.get = function(req, res) {
     App.find({}, function(err, apps) {
         if (err || apps.length === 0) {
