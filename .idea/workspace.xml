@@ -33,21 +33,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sabre_data.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sabre_data.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/sabre_data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6371882">
+            <state vertical-scroll-proportion="0.0">
               <caret line="99" column="14" selection-start-line="99" selection-start-column="14" selection-end-line="99" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.ctrl.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.ctrl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/app.ctrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="48" column="18" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.3537415">
+              <caret line="114" column="32" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -175,8 +175,8 @@
         <option value="$PROJECT_DIR$/controllers/user.ctrl.js" />
         <option value="$PROJECT_DIR$/common/http.hlpr.js" />
         <option value="$PROJECT_DIR$/models/app.mdl.js" />
-        <option value="$PROJECT_DIR$/controllers/app.ctrl.js" />
         <option value="$PROJECT_DIR$/scripts/sabre_data.js" />
+        <option value="$PROJECT_DIR$/controllers/app.ctrl.js" />
       </list>
     </option>
   </component>
@@ -771,18 +771,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/app.ctrl.js">
+    <entry file="file://$PROJECT_DIR$/scripts/sabre_data.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="48" column="18" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
+          <caret line="99" column="14" selection-start-line="99" selection-start-column="14" selection-end-line="99" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/sabre_data.js">
+    <entry file="file://$PROJECT_DIR$/controllers/app.ctrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6371882">
-          <caret line="99" column="14" selection-start-line="99" selection-start-column="14" selection-end-line="99" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.3537415">
+          <caret line="114" column="32" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
           <folding />
         </state>
       </provider>

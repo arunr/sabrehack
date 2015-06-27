@@ -112,6 +112,7 @@ module.exports.get = function(req, res) {
         } else {
             var fixed_apps = _.map(apps, function(app) {
                 return {
+                    id: app._id,
                     title: (app.basics && app.basics.title),
                     hours: (app.basics && app.basics.hours) || null,
                     days: (app.basics && app.basics.days) || null,
