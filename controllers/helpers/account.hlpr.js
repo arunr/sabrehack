@@ -49,7 +49,7 @@ module.exports.save_auth_token = function(account, user) {
   return deferred.promise;
 };
 
-module.exports.create_user_account = function(username, password, first_name, last_name, email) {
+module.exports.create_user_account = function(username, password, first_name, last_name, email, role, publisher_name) {
   var deferred = Q.defer();
   var return_data = {};
 
@@ -65,7 +65,9 @@ module.exports.create_user_account = function(username, password, first_name, la
         var new_user = new User({
             first_name: first_name,
             last_name: last_name,
-            email: email
+            email: email,
+            role: role,
+            publisher_name: publisher_name
         });
         new_user.save(function(err, saved_user) {
           if (err || !saved_user) {

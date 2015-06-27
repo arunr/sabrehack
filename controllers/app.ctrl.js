@@ -35,7 +35,7 @@ module.exports.getapp = function(req, res) {
 };
 
 module.exports.get = function(req, res) {
-    App.find({}, function(err, apps) {
+    App.find({}).populate('basics.publisher').exec(function(err, apps) {
         if (err || apps.length === 0) {
             HttpHelper.error(res, err || true, 'Failed to get apps');
         } else {
@@ -49,7 +49,8 @@ module.exports.get = function(req, res) {
                     categories: (app.basics && app.basics.categories) || null,
                     rating: (app.meta && app.meta.rating) || null,
                     description: (app.details && app.details.description) || null,
-                    itinerary: (app.details && app.details.itinerary) || null
+                    itinerary: (app.details && app.details.itinerary) || null,
+                    publisher: (app.basics && app.basics.publisher && app.basics.publisher.publisher_name) || null
                 }
             });
 

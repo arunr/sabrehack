@@ -42,9 +42,11 @@ module.exports.create_user = function(req, res) {
     var first_name = req.body.first_name + '';
     var last_name = req.body.last_name + '';
     var email = req.body.email + '';
+    var role = req.body.role + '';
+    var publisher_name = req.body.publisher_name + '' ;
 
     if (username && password) {
-        AccountHelper.create_user_account(username, password, first_name, last_name, email).then(function(data) {
+        AccountHelper.create_user_account(username, password, first_name, last_name, email, role, publisher_name).then(function(data) {
             AccountHelper.save_auth_token(data.data.account && data.data.account._id || null,
                 data.data.user && data.data.user._id || null)
                 .then(function(data) {

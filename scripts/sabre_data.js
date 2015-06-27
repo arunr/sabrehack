@@ -9,7 +9,8 @@ db.apps.insert({
         type: 'trip',
         created_at : new Date(),
         tags: ['London', 'India'],
-        categories: ['Single', 'Romantic']
+        categories: ['Single', 'Romantic'],
+        publisher: ObjectId('558eb7bb6e1cf0e11cf18dfc')
     },
     meta: {
         rating: 2

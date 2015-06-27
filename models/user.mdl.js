@@ -4,7 +4,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 require('./app.mdl');
-var Outlet = mongoose.model('App');
+var App = mongoose.model('App');
 
 var User = new Schema({
   activities: [],
@@ -15,7 +15,10 @@ var User = new Schema({
   first_name : String,
   last_name : String,
   email: String,
+    role: {type: String, enum:['publisher', 'user']},
+    publisher_name: {type: String},
   created_at: Date
 });
 
 module.exports = mongoose.model('User', User);
+
