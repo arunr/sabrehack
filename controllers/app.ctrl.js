@@ -44,6 +44,18 @@ function get_hotel_info(location) {
     return deferred.promise;
 }
 
+function get_events(location) {
+    var deferred = Q.defer();
+    rest.get('http://api-hackathon.getyourguide.com/1/tours/22543?cnt_language=en&currency=EUR', {
+        headers: {
+            'X-Access-Token':'TOQlyctkTh0xPyMces4eZLY2J5U2P7KdVxroimbRMLxJWMWm'
+        }
+    }).on('complete', function(data) {
+        deferred.resolve(data);
+    });
+    return deferred.promise;
+}
+
 module.exports.getapp = function(req, res) {
     App.findOne({_id: req.params.id}, function(err, app) {
         if (err || !app) {
@@ -71,7 +83,12 @@ module.exports.getapp = function(req, res) {
                             name : data.hotelName,
                             price: data.rates[0].nightlyRates[0]
                         };
-                        HttpHelper.success(res, fixed_app, 'Returning app');
+
+                        get_events().then(function(data) {
+                            console.log(data);
+                            HttpHelper.success(res, fixed_app, 'Returning app');
+
+                        });
                     })
                 }, function(err) {
                     HttpHelper.error(res, err, null);
