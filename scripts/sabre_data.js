@@ -174,3 +174,164 @@ db.apps.insert({
     }
 });
 
+db.apps.insert({
+    basics : {
+        title: 'Rural England Tour',
+        hours: null,
+        days: 4,
+        slug: 'rural_england',
+        type: 'trip',
+        created_at : new Date(),
+        tags: ['England', 'Countryside'],
+        categories: ['Group', 'Outdoors']
+    },
+    meta: {
+        rating: 3
+    },
+    details: {
+        description: "Discover Bill Brysons Rural England",
+        itinerary: [
+            {
+                day_num: 1,
+                details: "Arrive at London and drive down to the Peak District village of Eyre. Afternoon short walk through the village ending at the village pub."
+            },
+            {
+                day_num: 2,
+                details: "Morning after breakfast at your bnb walk to the Cavern and explore the Cavern. View beautiful stalactites and stalagmites and hear stories of the lead mines from your guide. Afternoon drive to the nearby town and explore the town center."
+            },
+            {
+                day_num: 3,
+                details: "Today is a day for a long walk through the neighbouring countryside across meadows, crossing streams and glades, and through sheep farms. Picnic lunch by a stream. Evening at the village of Leadenbrow pub."
+            }
+            {
+                day_num: 4,
+                details: "Walk to the peak hill and get a wonderful view of the countryside. Visit the needlework factory. Afternoon drive back to London."
+            }
+        ]
+    }
+});
+
+
+
+db.apps.insert({
+    basics : {
+        title: 'Amsterdam by cycle',
+        hours: null,
+        days: 2,
+        slug: 'amsterdam_cycle',
+        type: 'trip',
+        created_at : new Date(),
+        tags: ['Amsterdam', 'Netherlands'],
+        categories: ['Family', 'Outdoors']
+    },
+    meta: {
+        rating: 4
+    },
+    details: {
+        description: "Find spirituality in Amritsar in our specially designed trip.",
+        itinerary: [
+            {
+                day_num: 1,
+                details: "Meet your cycling tour guide and ride to the center where you can see the old harbour. Follow the canal route and understand the city. Lunch at the Jordan neighbourhood."
+            },
+            {
+                day_num: 2,
+                details: "Today we ride out of town into the villages near Amsterdam where we get to view age old windmills. Lunch at a village cafe and back to Amsterdam."
+            },
+
+        ]
+    }
+});
+
+
+db.apps.insert({
+    basics : {
+        title: 'Understanding ancient Rome',
+        hours: null,
+        days: 2,
+        slug: 'rome_history',
+        type: 'trip',
+        created_at : new Date(),
+        tags: ['Rome', 'Italy'],
+        categories: ['Group', 'History']
+    },
+    meta: {
+        rating: 5
+    },
+    details: {
+        description: "View the monuments of ancient Rome and understand Roman history.",
+        itinerary: [
+            {
+                day_num: 1,
+                details: "Arrival in Rome and check-in to your hotel. Late morning visit the Colosseum and the Roman columns. Evening dinner at an Italian restaurant."
+            },
+            {
+                day_num: 2,
+                details: "After breakfast visit the Roman baths and aqueducts on the outskirts of Rome."
+            },
+
+        ]
+    }
+});
+
+
+db.apps.insert({
+    basics : {
+        title: 'Walking in Dover',
+        hours: 3,
+        days: null,
+        slug: 'dover_walk',
+        type: 'activity',
+        created_at : new Date(),
+        tags: ['Dover', 'England'],
+        categories: ['Family', 'Outdoors']
+    },
+    meta: {
+        rating: 5
+    },
+    details: {
+        description: "A bracing half day guided walk along the Dover cliffs.",
+        itinerary: [
+            {
+                start_hour: 18,
+                start_min: 30,
+                end_hour: 21,
+                end_min: 30,
+                details: "Start your walk on the pebble beach and walk up the white chalk cliffs into the National Park. Our guide will talk to you about the historical significance of the various spots."
+            },
+
+        ]
+    }
+});
+
+
+db.apps.insert({
+    basics : {
+        title: 'Wine tasting in Tuscany',
+        hours: 6,
+        days: null,
+        slug: 'Tuscany_winetasting',
+        type: 'activities',
+        created_at : new Date(),
+        tags: ['Wine', 'Italy'],
+        categories: ['Single', 'Food']
+    },
+    meta: {
+        rating: 5
+    },
+    details: {
+        description: "A wine tasting tour that takes you through some of the finest vineyards in Tuscany",
+        itinerary: [
+            {
+                start_hour: 13,
+                start_min: 30,
+                end_hour: 19,
+                end_min: 30,
+                details: "We start the tour from the Podere Fraggina, an agritourismo. From here, we move onto San Giovvani where we taste the Chianti followed by the wonderful wine of the Tutto vineyard."
+            },
+
+        ]
+    }
+});
+
+
