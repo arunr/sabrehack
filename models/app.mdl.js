@@ -22,7 +22,7 @@ var AppSchema = new Schema({
             text: {type: String}
         }]
     },
-    detail: {
+    details: {
         description: {type: String},
         itinerary: [
             {
