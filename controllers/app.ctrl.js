@@ -22,7 +22,9 @@ module.exports.get = function(req, res) {
                     type: app.basics.type || null,
                     tags: app.basics.tags || null,
                     categories: app.basics.categories || null,
-                    rating: app.meta.rating || null
+                    rating: app.meta.rating || null,
+                    description: app.detail.description || null,
+                    itinerary: app.detail.itinerary || null
                 }
             });
 

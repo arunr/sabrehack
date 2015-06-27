@@ -10,7 +10,7 @@ var AppSchema = new Schema({
         hours: {type: Number},
         days: {type: Number},
         slug: {type: String},
-        type: {type: String, required: true, enum: ['trip', 'list']},
+        type: {type: String, required: true, enum: ['trip', 'tour', 'list']},
         created_at : {type: Date, default: Date.now},
         tags: [{type: String}],
         categories: [{type: String}]
@@ -23,15 +23,16 @@ var AppSchema = new Schema({
         }]
     },
     detail: {
+        description: {type: String},
         itinerary: [
             {
                 day_num: {type: String},
                 details: {type: String}
             }
         ],
-        flights: {type: String}, //TODO - Fixup
-        events: {type: String}, //TODO - Fixup
-        hotels: {type: String}
+        flights: {type: String}, //TODO - Fixup - Dynamic data
+        events: {type: String}, //TODO - Fixup - Dynamic data
+        hotels: {type: String} //TODO - Fixup
     }
 });
 
