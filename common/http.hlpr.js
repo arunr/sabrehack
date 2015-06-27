@@ -18,7 +18,7 @@ module.exports.response = function(o) {
 };
 
 module.exports.error = function(res, err, msg) {
-  res.status(200).send({
+  res.status(400).send({
     'response': false,
     'message': msg,
     'data': err
