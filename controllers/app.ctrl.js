@@ -16,15 +16,15 @@ module.exports.get = function(req, res) {
         } else {
             var fixed_apps = _.map(apps, function(app) {
                 return {
-                    title: app.basics.title,
-                    hours: app.basics.hours || null,
-                    days: app.basics.days || null,
-                    type: app.basics.type || null,
-                    tags: app.basics.tags || null,
-                    categories: app.basics.categories || null,
-                    rating: app.meta.rating || null,
-                    description: app.details.description || null,
-                    itinerary: app.details.itinerary || null
+                    title: (app.basics && app.basics.title),
+                    hours: (app.basics && app.basics.hours) || null,
+                    days: (app.basics && app.basics.days) || null,
+                    type: (app.basics && app.basics.type) || null,
+                    tags: (app.basics && app.basics.tags) || null,
+                    categories: (app.basics && app.basics.categories) || null,
+                    rating: (app.meta && app.meta.rating) || null,
+                    description: (app.details && app.details.description) || null,
+                    itinerary: (app.details && app.details.itinerary) || null
                 }
             });
 
