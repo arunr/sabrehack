@@ -31,7 +31,12 @@ var AppSchema = new Schema({
                 details: {type: String}
             }
         ],
-        flights: {type: String}, //TODO - Fixup - Dynamic data
+        flights: [
+            {
+                from: String,
+                to: String
+            }
+        ],
         events: {type: String}, //TODO - Fixup - Dynamic data
         hotels: {type: String} //TODO - Fixup
     }
