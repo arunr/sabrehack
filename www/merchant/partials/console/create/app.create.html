@@ -12,6 +12,15 @@
                     </md-input-container>
                 </div>
                 <div layout>
+                    <md-input-container flex>
+                        <label>Description</label>
+                        <input name="basics_title" ng-model="app.details.description" type="text" required>
+                        <p class="md-caption warn" ng-show="info.title.$invalid && !info.basics_title.$pristine">
+                            Title is a required field
+                        </p>
+                    </md-input-container>
+                </div>
+                <div layout>
                     <md-select ng-model="app.basics.type" placeholder="trip">
                         <md-option ng-repeat="type in types" value="{{type}}">{{type}}</md-option>
                     </md-select>
@@ -46,6 +55,18 @@
                     </md-input-container>
                 </div>
 
+                <div>Itinerary
+
+                    <md-button ng-click="addItem()">Add an item</md-button>
+                </div>
+                <div ng-repeat="i in itinerary">
+                    <div layout>
+                        <md-input-container flex>
+                            <label>Details</label>
+                            <input name="basics_title" ng-model="app.basics.categories" type="text" ng-list required>
+                        </md-input-container>
+                    </div>
+                </div>
 
                 <md-button ng-click="save()">Create</md-button>
                 <md-card ng-show="save.app">

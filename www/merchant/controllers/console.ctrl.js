@@ -56,6 +56,7 @@ twystMerchant.controller('ConsoleCtrl', function($scope, $rootScope, $timeout, $
     };
 
     $scope.types=['trip', 'activity', 'list'];
+    $scope.itinerary = [];
 
 
     $scope.app = {
@@ -93,7 +94,10 @@ twystMerchant.controller('ConsoleCtrl', function($scope, $rootScope, $timeout, $
     // For the menu
     $scope.items = [];
     $scope.addItem = function() {
-        $scope.items.push({});
+        $scope.itinerary.push({
+            day_num: "",
+            details:""
+        });
     };
 
     var sections = [],
