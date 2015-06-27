@@ -41,7 +41,7 @@ var twystMerchant = angular.module('twystMerchant', ['ngMaterial', 'ui.router', 
                 })
                 .state('console.create', {
                     url: '/create',
-                    templateUrl: "partials/console/create/outlet.create.html"
+                    templateUrl: "partials/console/create/app.create.html"
                 })
                 .state('console.manage', {
                     url: '/manage',

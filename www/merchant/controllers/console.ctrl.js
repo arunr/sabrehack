@@ -1,8 +1,6 @@
 twystMerchant.controller('ConsoleCtrl', function($scope, $rootScope, $timeout, $log, $mdToast, $rootScope, $state, $mdDialog, $cookies, resUser, authenticated, twystRESTSvc) {
     // Template for the outlet
     $timeout(function() {
-        console.log("CAME HERE");
-        console.log(resUser);
         $scope.user = (resUser && resUser.data && resUser.data) || null;
         $scope.username = ($scope.user && $scope.user.first_name) || " ";
     });

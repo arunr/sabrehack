@@ -1,0 +1,62 @@
+<form name="info" novalidate>
+    <md-content>
+        <md-card>
+            <md-card-content>
+                <div layout>
+                    <md-input-container flex>
+                        <label>App title *</label>
+                        <input name="basics_title" ng-model="app.basics.title" type="text" required>
+                        <p class="md-caption warn" ng-show="info.title.$invalid && !info.basics_title.$pristine">
+                            Title is a required field
+                        </p>
+                    </md-input-container>
+                </div>
+                <div layout>
+                    <md-select ng-model="app.basics.type" placeholder="trip">
+                        <md-option ng-repeat="type in types" value="{{type}}">{{type}}</md-option>
+                    </md-select>
+                </div>
+                <div ng-show="app.basics.type ==='trip'">
+                    <div layout>
+                        <md-input-container flex>
+                            <label>Days</label>
+                            <input name="basics_title" ng-model="app.basics.days" type="text" required>
+                        </md-input-container>
+                    </div>
+                </div>
+                <div ng-show="app.basics.type ==='activity'">
+                    <div layout>
+                        <md-input-container flex>
+                            <label>Hours</label>
+                            <input name="basics_title" ng-model="app.basics.hours" type="text" required>
+                        </md-input-container>
+                    </div>
+                </div>
+
+                <div layout>
+                    <md-input-container flex>
+                        <label>Tags</label>
+                        <input name="basics_title" ng-model="app.basics.tags" type="text" ng-list required>
+                    </md-input-container>
+                </div>
+                <div layout>
+                    <md-input-container flex>
+                        <label>Categories</label>
+                        <input name="basics_title" ng-model="app.basics.categories" type="text" ng-list required>
+                    </md-input-container>
+                </div>
+
+
+                <md-button ng-click="save()">Create</md-button>
+                <md-card ng-show="save.app">
+                    <md-card-content>
+                        Yippee, saved the app!
+                    </md-card-content>
+                </md-card>
+                <md-card ng-show="debug" class="debug">
+                    <md-card-content>
+                        {{app | json:object}}
+                    </md-card-content>
+                </md-card>
+    </md-content>
+</form>
