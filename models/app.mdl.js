@@ -14,7 +14,8 @@ var AppSchema = new Schema({
         created_at : {type: Date, default: Date.now},
         tags: [{type: String}],
         categories: [{type: String}],
-        thumbnail : {type: String}
+        thumbnail : {type: String},
+        publisher: {type: String}
     },
     meta: {
         rating: {type: Number},

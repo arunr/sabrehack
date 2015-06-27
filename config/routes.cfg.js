@@ -9,12 +9,12 @@ module.exports = function(app) {
 
     (function AccountRoutes() {
         var AccountCtrl = require('../controllers/account.ctrl');
-        app.post('/api/v1/accounts/login', function(req, res, next) {
+        app.post('/api/v1/login', function(req, res, next) {
                 next();
             }, passport.authenticate('account'),
             AccountCtrl.login);
 
-        app.post('/api/v1/accounts/register', AccountCtrl.create_user);
+        app.post('/api/v1/register', AccountCtrl.create_user);
         //app.get('/api/v4/authcode/:phone', AccountCtrl.create_authcode);
         //app.post('/api/v4/authcode', AccountCtrl.verify_authcode_and_create_account);
         app.get('/api/v1/logout', AccountCtrl.logout);
