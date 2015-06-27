@@ -6,6 +6,7 @@ twystMerchant.controller('ConsoleCtrl', function($scope, $timeout, $log, $mdToas
     $scope.username = ($scope.user && $scope.user.email) || " ";
   });
 
+
   // Function to show toasts
   function showToast(message) {
     $scope.toastPosition = {

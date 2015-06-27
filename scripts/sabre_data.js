@@ -311,7 +311,7 @@ db.apps.insert({
         hours: 6,
         days: null,
         slug: 'Tuscany_winetasting',
-        type: 'activities',
+        type: 'activity',
         created_at : new Date(),
         tags: ['Wine', 'Italy'],
         categories: ['Single', 'Food']

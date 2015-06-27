@@ -11,6 +11,8 @@ var HttpHelper = require('../common/http.hlpr');
 var Sabre = require('../config/sabre.cfg');
 var rest = require('restler');
 
+
+
 function get_flight_info(from, to, start, end) {
     var deferred = Q.defer();
 
@@ -142,4 +144,18 @@ module.exports.get = function(req, res) {
         }
     })
 
+};
+
+module.exports.saveapp = function(req, res) {
+    var created_app = _.extend({}, req.body);
+    var app = new App(created_app);
+    console.log(app);
+    app.save(function(err, a) {
+        if (err || !a) {
+            HttpHelper.error(res, err, null);
+        } else {
+            HttpHelper.success(res, a, null);
+
+        }
+    });
 };

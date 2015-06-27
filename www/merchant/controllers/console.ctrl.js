@@ -57,23 +57,12 @@ twystMerchant.controller('ConsoleCtrl', function($scope, $rootScope, $timeout, $
         $state.go('console.view');
     };
 
-    $scope.main_type = ['fnb', 'spa', 'retail', 'other'];
-    $scope.outlet = {
+    $scope.types=['trip', 'activity', 'list'];
+
+
+    $scope.app = {
         basics : {
-            name: null,
-            main_type: null,
-        },
-        contact: {
-            location: {
-                address: null,
-                locality_1: [],
-                locality_2: [],
-                city : null,
-                pin : null
-            },
-            phones: {
-                mobile: []
-            }
+            title: null,
         }
     };
 
@@ -85,12 +74,12 @@ twystMerchant.controller('ConsoleCtrl', function($scope, $rootScope, $timeout, $
 
 
     $scope.save = function() {
-        baseOutlets.post($scope.outlet).then(function(success) {
+        console.log($scope);
+        twystRESTSvc.save($scope.app).then(function(success) {
             $scope.save = $scope.save || {};
             $scope.save.outlet = true;
             $scope.save.data = success;
-            console.log(success);
-        }, function(err){
+        }, function(err) {
             console.log(err);
             $scope.save = $scope.save || {};
             $scope.save.outlet = false;
