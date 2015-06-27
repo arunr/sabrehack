@@ -3,8 +3,8 @@ twystMerchant.controller('ConsoleCtrl', function($scope, $rootScope, $timeout, $
     $timeout(function() {
         console.log("CAME HERE");
         console.log(resUser);
-        $scope.user = (resUser && resUser.data && resUser.data.data) || null;
-        $scope.username = ($scope.user && $scope.user.email) || " ";
+        $scope.user = (resUser && resUser.data && resUser.data) || null;
+        $scope.username = ($scope.user && $scope.user.first_name) || " ";
     });
 
     $rootScope.$on('$stateChangeError', function(error) {

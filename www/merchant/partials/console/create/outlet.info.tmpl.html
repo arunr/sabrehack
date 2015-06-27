@@ -4,14 +4,14 @@
       <md-card-content>
         <div layout>
           <md-input-container flex>
-            <label>Outlet name *</label>
-            <input name="basics_name" ng-model="outlet.basics.name" type="text" required>
-            <p class="md-caption warn" ng-show="info.basics_name.$invalid && !info.basics_name.$pristine">
-              Name is a required field
+            <label>App title *</label>
+            <input name="basics_title" ng-model="app.basics.title" type="text" required>
+            <p class="md-caption warn" ng-show="info.title.$invalid && !info.basics_title.$pristine">
+              Title is a required field
             </p>
           </md-input-container>
           <md-input-container flex>
-            <md-select placeholder="Outlet type" ng-model="outlet.basics.main_type">
+            <md-select placeholder="Outlet type" ng-model="app.basics.main_type">
               <div ng-repeat="o in main_type">
                 <md-option value="{{o}}">{{o | uppercase}}</md-option>
               </div>
@@ -21,13 +21,13 @@
         <div layout>
           <md-input-container flex>
             <label>Outlet address *</label>
-            <input name="basics_address" ng-model="outlet.contact.location.address" type="text" required>
+            <input name="basics_address" ng-model="app.contact.location.address" type="text" required>
             <p class="md-caption warn" ng-show="info.basics_address.$invalid && !info.basics_address.$pristine">
               Address is a required field
             </p>
           </md-input-container>
           <md-input-container flex>
-            <md-select placeholder="City" ng-model="outlet.contact.location.city">
+            <md-select placeholder="City" ng-model="app.contact.location.city">
               <md-option value="Gurgaon">Gurgaon</md-option>
               <md-option value="Delhi">Delhi</md-option>
               <md-option value="Noida">Noida</md-option>
@@ -39,24 +39,24 @@
         <div layout>
           <md-input-container flex>
             <label>Locality 1 *</label>
-            <input name="basics_locality_1" ng-model="outlet.contact.location.locality_1" type="text" required>
+            <input name="basics_locality_1" ng-model="app.contact.location.locality_1" type="text" required>
             <p class="md-caption warn" ng-show="info.basics_locality_1.$invalid && !info.basics_locality_1.$pristine">
               Locality 1 is a required field
             </p>
           </md-input-container>
           <md-input-container flex>
             <label>Locality 2</label>
-            <input ng-model="outlet.contact.location.locality_2" type="text">
+            <input ng-model="app.contact.location.locality_2" type="text">
           </md-input-container>
         </div>
         <div layout>
           <md-input-container flex>
             <label>Enter phone number(s), separated by commas</label>
-            <input ng-model="outlet.contact.phones.mobile" ng-list type="text">
+            <input ng-model="app.contact.phones.mobile" ng-list type="text">
           </md-input-container>
           <!-- <md-input-container flex>
             <label>Pin code</label>
-            <input name="location_pin" ng-model="outlet.contact.location.pin" type="number" required ng-minlength="6" ng-maxlength="6">
+            <input name="location_pin" ng-model="app.contact.location.pin" type="number" required ng-minlength="6" ng-maxlength="6">
             <p class="md-caption warn" ng-show="info.location_pin.$invalid && !info.location_pin.$pristine">
               Needs to be exactly 6 digits long.
             </p>
@@ -69,39 +69,39 @@
       <md-card-content>
         <div layout>
           <md-input-container flex>
-            <md-switch class="md-primary" ng-model="outlet.attributes.alcohol" aria-label="Switch 1">
+            <md-switch class="md-primary" ng-model="app.attributes.alcohol" aria-label="Switch 1">
               Serves alcohol
             </md-switch>
           </md-input-container>
           <md-input-container flex>
-            <md-switch class="md-primary" ng-model="outlet.attributes.smoking" aria-label="Switch 1">
+            <md-switch class="md-primary" ng-model="app.attributes.smoking" aria-label="Switch 1">
               Has a smoking area
             </md-switch>
           </md-input-container>
           <md-input-container flex>
-            <md-switch class="md-primary" ng-model="outlet.attributes.dine_in" aria-label="Switch 1">
+            <md-switch class="md-primary" ng-model="app.attributes.dine_in" aria-label="Switch 1">
               Has dine-in seating
             </md-switch>
           </md-input-container>
           <md-input-container flex>
-            <md-switch class="md-primary" ng-model="outlet.attributes.veg" aria-label="Switch 1">
+            <md-switch class="md-primary" ng-model="app.attributes.veg" aria-label="Switch 1">
               Only vegetarian
             </md-switch>
           </md-input-container>
         </div>
         <div layout>
           <md-input-container flex>
-            <md-switch class="md-primary" ng-model="outlet.attributes.chain" aria-label="Switch 1">
+            <md-switch class="md-primary" ng-model="app.attributes.chain" aria-label="Switch 1">
               Part of a chain
             </md-switch>
           </md-input-container>
           <md-input-container flex>
-            <md-switch class="md-primary" ng-model="outlet.attributes.outdoor" aria-label="Switch 1">
+            <md-switch class="md-primary" ng-model="app.attributes.outdoor" aria-label="Switch 1">
               Has outdoor seating
             </md-switch>
           </md-input-container>
           <md-input-container flex>
-            <md-switch class="md-primary" ng-model="outlet.attributes.home_delivery" aria-label="Switch 1">
+            <md-switch class="md-primary" ng-model="app.attributes.home_delivery" aria-label="Switch 1">
               <md-tooltip>
                 Refresh
               </md-tooltip>
@@ -109,7 +109,7 @@
             </md-switch>
           </md-input-container>
           <md-input-container flex>
-            <md-switch class="md-primary" ng-model="outlet.attributes.foodcourt" aria-label="Switch 1">
+            <md-switch class="md-primary" ng-model="app.attributes.foodcourt" aria-label="Switch 1">
               Part of a foodcourt
             </md-switch>
           </md-input-container>
@@ -120,7 +120,7 @@
       <md-card-content>
         <div layout>
           <md-input-container flex>
-            <md-select placeholder="Parking" ng-model="outlet.attributes.parking">
+            <md-select placeholder="Parking" ng-model="app.attributes.parking">
               <md-option value="Available">Available</md-option>
               <md-option value="Valet">Valet</md-option>
               <md-option value="Not available">Not available</md-option>
@@ -128,7 +128,7 @@
             <p class="md-caption">Parking</p>
           </md-input-container>
           <md-input-container flex>
-            <md-select placeholder="Air-conditioning" ng-model="outlet.attributes.air_conditioning">
+            <md-select placeholder="Air-conditioning" ng-model="app.attributes.air_conditioning">
               <md-option value="Available">Available</md-option>
               <md-option value="Partial">Partial</md-option>
               <md-option value="Not available">Not available</md-option>
@@ -136,7 +136,7 @@
             <p class="md-caption">Air-conditioning</p>
           </md-input-container>
           <md-input-container flex>
-            <md-select placeholder="Reservation" ng-model="outlet.attributes.reservation">
+            <md-select placeholder="Reservation" ng-model="app.attributes.reservation">
               <md-option value="Required">Required</md-option>
               <md-option value="Suggested">Suggested</md-option>
               <md-option value="Not required">Not required</md-option>
@@ -144,7 +144,7 @@
             <p class="md-caption">Reservation</p>
           </md-input-container>
           <md-input-container flex>
-            <md-select placeholder="Wi-Fi" ng-model="outlet.attributes.wifi">
+            <md-select placeholder="Wi-Fi" ng-model="app.attributes.wifi">
               <md-option value="Available">Available</md-option>
               <md-option value="Paid">Paid</md-option>
               <md-option value="Not available">Not available</md-option>
@@ -155,14 +155,14 @@
       </md-card-content>
     </md-card> -->
     <md-button ng-click="save()">Create</md-button>
-    <md-card ng-show="save.outlet">
+    <md-card ng-show="save.app">
       <md-card-content>
-        Yippee, saved the outlet!
+        Yippee, saved the app!
       </md-card-content>
     </md-card>
     <md-card ng-show="debug" class="debug">
       <md-card-content>
-        {{outlet | json:object}}
+        {{app | json:object}}
       </md-card-content>
     </md-card>
   </md-content>
