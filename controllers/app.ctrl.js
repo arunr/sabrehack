@@ -10,8 +10,28 @@ var Q = require('q');
 var HttpHelper = require('../common/http.hlpr');
 
 module.exports.getapp = function(req, res) {
-    console.log(req.params);
-    HttpHelper.success(res, null, null);
+    App.findOne({_id: req.params.id}, function(err, app) {
+        if (err || !app) {
+            HttpHelper.error(res, err || true, 'Failed to get apps');
+        } else {
+            console.log(app);
+
+            var fixed_app = {
+                    title: (app.basics && app.basics.title),
+                    hours: (app.basics && app.basics.hours) || null,
+                    days: (app.basics && app.basics.days) || null,
+                    type: (app.basics && app.basics.type) || null,
+                    tags: (app.basics && app.basics.tags) || null,
+                    categories: (app.basics && app.basics.categories) || null,
+                    rating: (app.meta && app.meta.rating) || null,
+                    description: (app.details && app.details.description) || null,
+                    itinerary: (app.details && app.details.itinerary) || null
+                };
+
+
+            HttpHelper.success(res, fixed_app, 'Returning app');
+        }
+    })
 };
 
 module.exports.get = function(req, res) {
