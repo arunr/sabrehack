@@ -35,6 +35,29 @@ module.exports.logout = function(req, res) {
   });
 };
 
+module.exports.create_user = function(req, res) {
+    console.log(req);
+    var username = req.body.username + '';
+    var password = req.body.password + '';
+    var first_name = req.body.first_name + '';
+    var last_name = req.body.last_name + '';
+    var email = req.body.email + '';
+
+    if (username && password) {
+        AccountHelper.create_user_account(username, password, first_name, last_name, email).then(function(data) {
+            AccountHelper.save_auth_token(data.data.account && data.data.account._id || null,
+                data.data.user && data.data.user._id || null)
+                .then(function(data) {
+                    HttpHelper.success(res, data.data, data.message);
+                }, function(err) {
+                    HttpHelper.error(res, err.err, err.message);
+                });
+        });
+    } else {
+        HttpHelper.error(res, null, 'Please send phone number for registration');
+    }
+};
+
 module.exports.create_authcode = function(req, res) {
   var phone = req.params.phone;
   var code = '';

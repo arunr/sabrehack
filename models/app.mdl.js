@@ -13,7 +13,8 @@ var AppSchema = new Schema({
         type: {type: String, required: true, enum: ['trip', 'tour', 'list']},
         created_at : {type: Date, default: Date.now},
         tags: [{type: String}],
-        categories: [{type: String}]
+        categories: [{type: String}],
+        thumbnail : {type: String}
     },
     meta: {
         rating: {type: Number},

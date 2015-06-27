@@ -49,11 +49,11 @@ module.exports.save_auth_token = function(account, user) {
   return deferred.promise;
 };
 
-module.exports.create_user_account = function(phone) {
+module.exports.create_user_account = function(username, password, first_name, last_name, email) {
   var deferred = Q.defer();
   var return_data = {};
 
-  User.findOne({phone: phone}, function(err, user) {
+  User.findOne({username: username}, function(err, user) {
     if (err) {
       deferred.reject({err:err, message:'Error registering user'});
     } else {
@@ -63,24 +63,22 @@ module.exports.create_user_account = function(phone) {
         deferred.resolve({data: return_data, message: 'User already exists'});
       } else {
         var new_user = new User({
-          phone: phone,
-          validation: {
-            otp: true
-          }
+            first_name: first_name,
+            last_name: last_name,
+            email: email
         });
         new_user.save(function(err, saved_user) {
           if (err || !saved_user) {
             deferred.reject({err: err || true, message: 'Couldn\'t create user'});
           } else {
             var account = {
-              username: phone,
-              role: 7,
+              username: username,
               user: saved_user._id
             };
 
             Account.register(
               new Account(account),
-              phone,
+              password,
               function(err, created_account) {
                 if (err) {
                   deferred.reject({err: err, message: 'Error creating account'});

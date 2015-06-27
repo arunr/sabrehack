@@ -8,7 +8,10 @@ var Outlet = mongoose.model('App');
 
 var User = new Schema({
   activities: [],
-  outlets: [{type: Schema.ObjectId, ref: 'App'}],
+  apps: [{type: Schema.ObjectId, ref: 'App'}],
+  first_name : String,
+  last_name : String,
+  email: String,
   created_at: Date
 });
 

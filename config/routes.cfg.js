@@ -14,8 +14,9 @@ module.exports = function(app) {
             }, passport.authenticate('account'),
             AccountCtrl.login);
 
-        app.get('/api/v4/authcode/:phone', AccountCtrl.create_authcode);
-        app.post('/api/v4/authcode', AccountCtrl.verify_authcode_and_create_account);
+        app.post('/api/v4/accounts/register', AccountCtrl.create_user);
+        //app.get('/api/v4/authcode/:phone', AccountCtrl.create_authcode);
+        //app.post('/api/v4/authcode', AccountCtrl.verify_authcode_and_create_account);
         app.get('/api/v4/logout', AccountCtrl.logout);
 
     })();
@@ -59,14 +60,14 @@ module.exports = function(app) {
     //
     //})();
     //
-    //(function UserRoutes() {
-    //  var UserCtrl = require('../controllers/user.ctrl');
-    //  app.get('/api/v4/profile', UserCtrl.get_profile);
-    //  app.put('/api/v4/profile', UserCtrl.update_profile);
-    //  app.put('/api/v4/friends', UserCtrl.update_friends);
-    //
-    //  app.get('/api/v4/coupons', UserCtrl.get_coupons);
-    //})();
+    (function UserRoutes() {
+      var UserCtrl = require('../controllers/user.ctrl');
+      app.get('/api/v4/profile', UserCtrl.get_profile);
+      //app.put('/api/v4/profile', UserCtrl.update_profile);
+      //app.put('/api/v4/friends', UserCtrl.update_friends);
+      //
+      //app.get('/api/v4/coupons', UserCtrl.get_coupons);
+    })();
 };
 
 

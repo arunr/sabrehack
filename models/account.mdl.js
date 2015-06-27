@@ -8,7 +8,6 @@ require('./user.mdl');
 var User = mongoose.model('User');
 
 var Account = new Schema({
-  role: Number,
   user: {type: Schema.ObjectId, ref: User}
 });
 
