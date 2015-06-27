@@ -14,7 +14,19 @@ module.exports.get = function(req, res) {
         if (err || apps.length === 0) {
             HttpHelper.error(res, err || true, 'Failed to get apps');
         } else {
-            HttpHelper.success(res, apps, 'Returning apps');
+            var fixed_apps = _.map(apps, function(app) {
+                return {
+                    title: app.basics.title,
+                    hours: app.basics.hours || null,
+                    days: app.basics.days || null,
+                    type: app.basics.type || null,
+                    tags: app.basics.tags || null,
+                    categories: app.basics.categories || null,
+                    rating: app.meta.rating || null
+                }
+            });
+
+            HttpHelper.success(res, fixed_apps, 'Returning apps');
         }
     })
 
