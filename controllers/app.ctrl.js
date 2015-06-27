@@ -92,7 +92,12 @@ module.exports.getapp = function(req, res) {
                     })
                 }, function(err) {
                     HttpHelper.error(res, err, null);
-                });
+                }).fail(function(err) {
+                    console.log(err);
+                }) ;
+            } else {
+                HttpHelper.success(res, fixed_app, 'Returning app');
+
             }
         }
     });

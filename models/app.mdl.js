@@ -10,7 +10,7 @@ var AppSchema = new Schema({
         hours: {type: Number},
         days: {type: Number},
         slug: {type: String},
-        type: {type: String, required: true, enum: ['trip', 'tour', 'list']},
+        type: {type: String, required: true, enum: ['trip', 'activity', 'list']},
         created_at : {type: Date, default: Date.now},
         tags: [{type: String}],
         categories: [{type: String}],

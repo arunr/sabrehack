@@ -29,7 +29,11 @@ db.apps.insert({
                 day_num: 3,
                 details: "Morning river cruise, followed by the National Gallery and a Pub Crawl in the evening."
             }
-        ]
+        ],
+        flights: [{
+            from: 'ORD',
+            to: 'NYC'
+        }]
     }
 });
 
@@ -117,7 +121,7 @@ db.apps.insert({
         hours: 3,
         days: null,
         slug: 'amsterdam_canal',
-        type: 'activities',
+        type: 'activity',
         created_at : new Date(),
         tags: ['Amsterdam', 'Netherlands'],
         categories: ['Single', 'Food']
@@ -147,7 +151,7 @@ db.apps.insert({
         hours: 6,
         days: null,
         slug: 'bruges_cycling',
-        type: 'activities',
+        type: 'activity',
         created_at : new Date(),
         tags: ['Bruges', 'Belgium'],
         categories: ['Single', 'Soft adventure']
