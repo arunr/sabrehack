@@ -7,11 +7,11 @@
         <link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.css">
     </head>
     <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" style="background-color:#9e0000 !important">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">GypsyFeet - Tour Operator Portal   </a>
+                <a class="navbar-brand" href="#">GypsyFeet - Tour Operator Portal <img src="Logo.png" width="200px" height="auto" style="margin-top:60px !important"></a>
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Manage your apps</a></li>
@@ -28,7 +28,7 @@
                     <div class="well" ng-hide="logged_in">
                         <form>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
+                                <label for="exampleInputEmail1">User name</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" ng-model="user.username" placeholder="Email">
                             </div>
                             <div class="form-group">
@@ -76,11 +76,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tags <small>Comma separated</small></label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" ng-model="app.basics.tags" ng-list placeholder="Description of app">
+                                <input type="text" class="form-control" id="exampleInputEmail1" ng-model="app.basics.tags" ng-list placeholder="Tags for the app">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Categories <small>Comma separated</small></label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" ng-model="app.basics.categories" ng-list placeholder="Description of app">
+                                <input type="text" class="form-control" id="exampleInputEmail1" ng-model="app.basics.categories" ng-list placeholder="Categories for the app">
                             </div>
                         </div>
 
@@ -128,13 +128,24 @@
                                 </div>
                                 <hr/>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Events </label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" ng-model="app.details.events" placeholder="Events">
+                                    <label for="exampleInputEmail1">Events in </label>
+                                    <select class="form-control" ng-model="locationva" ng-options="loc.name for loc in locations">
+
+                                    </select>
+                                    <button ng-click="getEvents()" class="btn btn-link btn-sm">Get Events</button>
+                                    <div ng-repeat="e in events">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" value="{{e.tour_id}}" ng-model="selected_events[$index]">
+                                                {{e.title}}, ${{e.price.values.amount}}
+                                            </label>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         <button class="btn btn-warning" ng-click="saveapp()">Publish</button>
                         </form>
-                        <div>{{app|json}}</div>
 
                         <div class="text-success" ng-show="saved.status">Successfully saved the app!</div>
                         <div class="text-danger"  ng-show="saved.error">Error saving the app</div>

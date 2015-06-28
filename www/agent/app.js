@@ -97,7 +97,38 @@ var sabreHack = angular.module("sabreHack", [])
             }, function(err) {
                 console.log(err);
             });
-        }
+        };
+
+        $scope.selected_events = [];
+        $scope.getEvents = function() {
+            console.log($scope.locationva);
+            $scope.events = $scope.events || [];
+            $http.get('/api/v1/events/' + $scope.locationva.id).then(function(data) {
+                $scope.events = data.data.data.data.tours;
+                console.log($scope.events);
+
+
+            }, function(err) {
+                console.log(err);
+            });
+        };
+
+        $scope.getLocations = function() {
+            console.log("CALLED");
+            $http.get('/api/v1/locations').then(function(data) {
+                var locs = data.data.data.data.locations;
+                $scope.locations = locs.map(function(l) {
+                    return {
+                        name: l.name,
+                        id: l.location_id
+                    }
+                });
+                console.log($scope.locations);
+            }, function(err) {
+                console.log(err);
+            });
+        };
+        $scope.getLocations();
 
         $scope.removeStep = function(i) {
             $scope.app.details.itinerary.splice(i,1)

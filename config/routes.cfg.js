@@ -85,7 +85,45 @@ module.exports = function(app) {
             rest.get('http://dev.jellyfishsurpriseparty.com/hotel/rates/1730/2015-06-27/2015-06-29').on('complete', function(data) {
                 HttpHelper.success(res, data, "Hotels");
             });
-        })
+        });
+
+        app.get('/api/v1/locations', function(req, res) {
+            var rest = require('restler');
+            var HttpHelper = require('../common/http.hlpr');
+            rest.get('http://api-hackathon.getyourguide.com/1/locations?cnt_language=en&currency=EUR', {
+                headers: {
+                    'X-Access-Token':'TOQlyctkTh0xPyMces4eZLY2J5U2P7KdVxroimbRMLxJWMWm'
+                }
+            }).on('complete', function(data) {
+                HttpHelper.success(res, data, "Locations");
+            });
+        });
+        app.get('/api/v1/tours', function(req, res) {
+            var rest = require('restler');
+            var HttpHelper = require('../common/http.hlpr');
+            rest.get('http://api-hackathon.getyourguide.com/1/locations?cnt_language=en&currency=EUR', {
+                headers: {
+                    'X-Access-Token':'TOQlyctkTh0xPyMces4eZLY2J5U2P7KdVxroimbRMLxJWMWm'
+                }
+            }).on('complete', function(data) {
+                HttpHelper.success(res, data, "Locations");
+            });
+        });
+
+        app.get('/api/v1/events/:location', function(req, res) {
+           // 862
+            var param = req.params.location;
+            console.log(param);
+            var rest = require('restler');
+            var HttpHelper = require('../common/http.hlpr');
+            rest.get('http://api-hackathon.getyourguide.com/1/tours?location=' + param + '&cnt_language=en&currency=EUR', {
+                headers: {
+                    'X-Access-Token':'TOQlyctkTh0xPyMces4eZLY2J5U2P7KdVxroimbRMLxJWMWm'
+                }
+            }).on('complete', function(data) {
+                HttpHelper.success(res, data, "Tours");
+            });
+        });
     })();
 
     //(function RecoRoutes() {
