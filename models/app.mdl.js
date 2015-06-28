@@ -38,7 +38,11 @@ var AppSchema = new Schema({
             }
         ],
         events: {type: String}, //TODO - Fixup - Dynamic data
-        hotels: {type: String} //TODO - Fixup
+        hotels: {
+            name: String,
+            id: String,
+            rate: String
+        } //TODO - Fixup
     }
 });
 

@@ -121,6 +121,10 @@
 
                                     </select>
                                     <button ng-click="getHotels()" class="btn btn-link btn-sm">Get Hotels</button>
+
+                                    <select ng-show="hotels.length" class="form-control" ng-model="app.details.hotels" ng-options="(hotel.name + ' - $' + hotel.rate) for hotel in hotels">
+
+                                    </select>
                                 </div>
                                 <hr/>
                                 <div class="form-group">
