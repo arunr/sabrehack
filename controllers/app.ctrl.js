@@ -91,7 +91,7 @@ module.exports.getapp = function(req, res) {
                 hashcat: fix_up(app.basics && app.basics.categories || null),
                 rating: (app.meta && app.meta.rating) || null,
                 description: (app.details && app.details.description) || null,
-                itinerary: (app.details && app.details.itinerary) || null,
+                itinerary: fix_itin(app.details && app.details.itinerary || null),
                 publisher: (app.basics && app.basics.publisher && app.basics.publisher.publisher_name) || null
 
             };
