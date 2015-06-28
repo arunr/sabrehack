@@ -6,7 +6,7 @@ module.exports.values = {
   'config': {
     'LOCAL': {
       'server': 'http://localhost',
-      'port': 3000,
+      'port': 80,
       'db_uri': 'mongodb://localhost/sabrehack',
       'clear_interval': 3600
     }
