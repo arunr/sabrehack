@@ -22,7 +22,6 @@ function get_flight_info(from, to, start, end) {
             deferred.reject(null);
         } else {
             var d = _.extend({}, JSON.parse(data));
-            console.log(JSON.stringify(d));
             var fares = _.map(d['PricedItineraries'], function(fare) {
                 return {
                     name: from + "-" + to,
@@ -79,11 +78,15 @@ module.exports.getapp = function(req, res) {
                 var to = app.details.flights[0].to;
                 get_flight_info(from, to, null, null).then(function(data) {
                     fixed_app.flights = data;
+
                     get_hotel_info().then(function(data) {
-                        fixed_app.hotels = {
-                            name : data.hotelName,
-                            price: data.rates[0].nightlyRates[0] + ''
-                        };
+                        console.log(data);
+                        if (!data.code === 'NotFound') {
+                            fixed_app.hotels = {
+                                name : data.hotelName,
+                                price: data.rates[0].nightlyRates[0] + ''
+                            };
+                        }
 
                         get_events().then(function(data) {
                             var attractions = _.map(data.data.tours, function(tour) {
@@ -98,6 +101,9 @@ module.exports.getapp = function(req, res) {
                         }, function(err) {
                             HttpHelper.success(res, fixed_app, 'Returning app');
                         });
+                    }, function(err) {
+                        HttpHelper.success(res, fixed_app, 'Returning app');
+
                     })
                 }, function(err) {
                     HttpHelper.error(res, err, null);
