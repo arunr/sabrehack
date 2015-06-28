@@ -78,11 +78,48 @@
                             </div>
                         </div>
 
+                        <div class="well">
+                            <strong>Itinerary</strong>
+                            <div ng-repeat="i in app.details.itinerary">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Day number</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" ng-model="app.details.itinerary[$index].day_num" placeholder="Day number">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Details</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" ng-model="app.details.itinerary[$index].details" placeholder="Details">
+                                </div>
+                                <button class="btn btn-link btn-sm" ng-click="removeStep($index)">Remove</button>
+                                <hr/>
+                            </div>
+                            <button class="btn btn-link btn-sm" ng-click="addStep()">Add itinerary step</button>
+
+                        </div>
+                            <div class="well">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Flight from </label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" ng-model="app.details.flights[0].from" placeholder="Flight from">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Flight to </label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" ng-model="app.details.flights[0].to" placeholder="Flight to">
+                                </div>
+                                <hr/>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Hotels </label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" ng-model="app.details.hotels" placeholder="Hotels">
+                                </div>
+                                <hr/>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Events </label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" ng-model="app.details.events" placeholder="Events">
+                                </div>
+                            </div>
+
                         <button class="btn btn-warning" ng-click="saveapp()">Submit</button>
                         </form>
                         <div class="text-success" ng-show="saved.status">Successfully saved the app!</div>
                         <div class="text-danger"  ng-show="saved.error">Error saving the app</div>
-                        <div>{{app|json}}</div>
                     </div>
                 </div>
                 <div class="col-md-3"></div>

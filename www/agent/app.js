@@ -20,4 +20,18 @@ var sabreHack = angular.module("sabreHack", [])
                 $scope.saved.data = err;
             });
         }
+
+        $scope.app = $scope.app || {};
+        $scope.app.details = $scope.app.details || {};
+        $scope.app.details.itinerary = $scope.app.details.itinerary || [];
+        $scope.addStep = function() {
+            $scope.app.details.itinerary.push({
+                day_num:"",
+                detaisl: ""
+            })
+        }
+
+        $scope.removeStep = function(i) {
+            $scope.app.details.itinerary.splice(i,1)
+        }
     });
