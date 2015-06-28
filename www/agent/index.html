@@ -4,15 +4,21 @@
         <title>SabreHack</title>
         <script src="../bower_components/angular/angular.js"></script>
         <script src="./app.js"></script>
-        <link rel="stylesheet" href="https://bootswatch.com/cosmo/bootstrap.css">
+        <link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.css">
     </head>
     <body>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">sabreHack</a>
+                <a class="navbar-brand" href="#">GypsyFeet - Tour Operator Portal   </a>
             </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Manage your apps</a></li>
+                <li><a href="#">View all bookings</a></li>
+                <li><a href="#">App analytics</a></li>
+
+            </ul>
         </div>
     </nav>
         <div class="container" ng-controller="mainCtrl">
@@ -98,11 +104,15 @@
                             <div class="well">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Flight from </label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" ng-model="app.details.flights[0].from" placeholder="Flight from">
+                                    <select class="form-control" ng-model="app.details.flights[0].from" ng-options="city for city in cities">
+
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Flight to </label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" ng-model="app.details.flights[0].to" placeholder="Flight to">
+                                    <select class="form-control" ng-model="app.details.flights[0].to" ng-options="city for city in cities">
+
+                                    </select>
                                 </div>
                                 <hr/>
                                 <div class="form-group">
@@ -115,9 +125,10 @@
                                     <input type="text" class="form-control" id="exampleInputEmail1" ng-model="app.details.events" placeholder="Events">
                                 </div>
                             </div>
-
-                        <button class="btn btn-warning" ng-click="saveapp()">Submit</button>
+                        <button class="btn btn-warning" ng-click="saveapp()">Publish</button>
                         </form>
+                        <div>{{app|json}}</div>
+
                         <div class="text-success" ng-show="saved.status">Successfully saved the app!</div>
                         <div class="text-danger"  ng-show="saved.error">Error saving the app</div>
                     </div>

@@ -28,6 +28,66 @@ module.exports = function(app) {
         app.post('/api/v1/apps', AppCtrl.saveapp);
     })();
 
+    (function SabreRoutes() {
+        app.get('/api/v1/flights', function(req, res) {
+            var Sabre = require('./sabre.cfg');
+            var HttpHelper = require('../common/http.hlpr');
+            HttpHelper.success(res, null, null);
+        });
+
+        app.get('/api/v1/cities', function(req, res) {
+            var HttpHelper = require('../common/http.hlpr');
+            var cities = ['AMS',
+                'BCN',
+                'BER',
+                'BRU',
+                'BUD',
+                'CPH',
+                'DOH',
+                'DUB',
+                'DXB',
+                'EDI',
+                'FRA',
+                'GEV',
+                'HAM',
+                'IST',
+                'MAD',
+                'MOW',
+                'MCO',
+                'MUC',
+                'MXP',
+                'OSL',
+                'ROM',
+                'RUH',
+                'SIN',
+                'STO',
+                'WAW',
+                'ZRH',
+                'SFO',
+                'LAX',
+                'BOS',
+                'ORD',
+                'DCA',
+                'DFW',
+                'LAS',
+                'MIA',
+                'LGA',
+                'ATL',
+                'LHR',
+                'IAH',
+                'SEA'];
+            HttpHelper.success(res, cities, "Cities list");
+        });
+
+        app.get('/api/v1/hotels', function(req, res) {
+            var rest = require('restler');
+            var HttpHelper = require('../common/http.hlpr');
+            rest.get('http://dev.jellyfishsurpriseparty.com/hotel/rates/1730/2015-06-27/2015-06-29').on('complete', function(data) {
+                HttpHelper.success(res, data, "Hotels");
+            });
+        })
+    })();
+
     //(function RecoRoutes() {
     //  var RecoCtrl = require('../controllers/reco.ctrl');
     //  app.get('/api/v4/recos', RecoCtrl.get);

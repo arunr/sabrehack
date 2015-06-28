@@ -57,7 +57,7 @@ function get_events(location) {
 }
 
 module.exports.getapp = function(req, res) {
-    App.findOne({_id: req.params.id}, function(err, app) {
+    App.findOne({_id: req.params.id}).populate('basics.publisher').exec(function(err, app) {
         if (err || !app) {
             HttpHelper.error(res, err || true, 'Failed to get apps');
         } else {
@@ -70,7 +70,9 @@ module.exports.getapp = function(req, res) {
                 categories: (app.basics && app.basics.categories) || null,
                 rating: (app.meta && app.meta.rating) || null,
                 description: (app.details && app.details.description) || null,
-                itinerary: (app.details && app.details.itinerary) || null
+                itinerary: (app.details && app.details.itinerary) || null,
+                publisher: (app.basics && app.basics.publisher && app.basics.publisher.publisher_name) || null
+
             };
 
             if (app.details.flights.length !== 0) {
