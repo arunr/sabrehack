@@ -1,5 +1,5 @@
-var twystMerchant = angular.module('twystMerchant', ['ngMaterial', 'ui.router', 'ngCookies', 'angularMoment', 'twyst.store']).
-    config(function($stateProvider, $urlRouterProvider, $mdThemingProvider) {
+var twystMerchant = angular.module('twystMerchant', ['ui.router', 'ngCookies', 'angularMoment', 'twyst.store']).
+    config(function($stateProvider, $urlRouterProvider) {
         (function configureStates() {
             $urlRouterProvider.otherwise("/home");
             $stateProvider

@@ -1,4 +1,4 @@
-twystMerchant.controller('ConsoleCtrl', function($scope, $rootScope, $timeout, $log, $mdToast, $rootScope, $state, $mdDialog, $cookies, resUser, authenticated, twystRESTSvc) {
+twystMerchant.controller('ConsoleCtrl', function($scope, $rootScope, $timeout, $log, $rootScope, $state,  $cookies, resUser, authenticated, twystRESTSvc) {
     // Template for the outlet
     $timeout(function() {
         $scope.user = (resUser && resUser.data && resUser.data) || null;
@@ -10,29 +10,29 @@ twystMerchant.controller('ConsoleCtrl', function($scope, $rootScope, $timeout, $
     });
 
     // Function to show toasts
-    function showToast(message) {
-        $scope.toastPosition = {
-            bottom: false,
-            top: true,
-            left: false,
-            right: true
-        };
-
-        $scope.getToastPosition = function() {
-            return Object.keys($scope.toastPosition)
-                .filter(function(pos) {
-                    return $scope.toastPosition[pos];
-                })
-                .join(' ');
-        };
-
-        $mdToast.show(
-            $mdToast.simple()
-                .content(message)
-                .position($scope.getToastPosition())
-                .hideDelay(3000)
-        );
-    }
+    //function showToast(message) {
+    //    $scope.toastPosition = {
+    //        bottom: false,
+    //        top: true,
+    //        left: false,
+    //        right: true
+    //    };
+    //
+    //    $scope.getToastPosition = function() {
+    //        return Object.keys($scope.toastPosition)
+    //            .filter(function(pos) {
+    //                return $scope.toastPosition[pos];
+    //            })
+    //            .join(' ');
+    //    };
+    //
+    //    $mdToast.show(
+    //        $mdToast.simple()
+    //            .content(message)
+    //            .position($scope.getToastPosition())
+    //            .hideDelay(3000)
+    //    );
+    //}
 
     if (!authenticated) {x
         showToast("Please sign-in to continue!");

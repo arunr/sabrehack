@@ -1,23 +1,16 @@
-<div layout="column" layout-fill>
+<div class="container">
   <div ng-include="'./partials/home/home.header.html'"></div>
-  <md-content ng-init="signed_in()">
-    <div layout="row">
-      <div flex offset="50">
-        <md-card>
-          <md-card-content>
+  <div ng-init="signed_in()">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="well">
+          <div>
             <div ng-include="'./partials/home/signin.tmpl.html'"></div>
 
-            <!--<md-tabs md-border-bottom>-->
-              <!--<md-tab label="Sign in">-->
-              <!--</md-tab>-->
-              <!--<md-tab label="Register with Twyst">-->
-                <!--<div ng-include="'./partials/home/register.tmpl.html'"></div>-->
-              <!--</md-tab>-->
-            <!--</md-tabs>-->
-          </md-card-content>
-        </md-card>
+          </div>
+        </div>
       </div>
-      <div flex="10"></div>
+      <div class="col-md-4"></div>
     </div>
-  </md-content>
+  </div>
 </div>

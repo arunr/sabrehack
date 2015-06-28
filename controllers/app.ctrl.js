@@ -84,18 +84,18 @@ module.exports.getapp = function(req, res) {
                             name : data.hotelName,
                             price: data.rates[0].nightlyRates[0] + ''
                         };
+                        HttpHelper.success(res, fixed_app, 'Returning app');
 
-                        get_events().then(function(data) {
-                            var attractions = _.map(data.data.tours, function(tour) {
-                               return {
-                                   name : tour.title,
-                                   price: (tour.price && tour.price.values && tour.price.values.amount) + ''
-                               }
-                            });
-                            fixed_app.attractions = attractions.slice(0,3);
-                            HttpHelper.success(res, fixed_app, 'Returning app');
-
-                        });
+                        //get_events().then(function(data) {
+                        //    var attractions = _.map(data.data.tours, function(tour) {
+                        //       return {
+                        //           name : tour.title,
+                        //           price: (tour.price && tour.price.values && tour.price.values.amount) + ''
+                        //       }
+                        //    });
+                        //    fixed_app.attractions = attractions.slice(0,3);
+                        //
+                        //});
                     })
                 }, function(err) {
                     HttpHelper.error(res, err, null);

@@ -1,0 +1,1 @@
+var sabreHack = angular.module("sabreHack", []);

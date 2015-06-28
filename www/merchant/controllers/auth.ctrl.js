@@ -1,4 +1,4 @@
-twystMerchant.controller('AuthCtrl', function($scope, $rootScope, $state, $mdDialog, $cookies, twystRESTSvc) {
+twystMerchant.controller('AuthCtrl', function($scope, $rootScope, $state, $cookies, twystRESTSvc) {
   // Initialize the variables for signin, register & forgot.
   $scope.loginuser = {};
   $scope.registeruser = {};
