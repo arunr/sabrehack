@@ -106,9 +106,13 @@ module.exports.getapp = function(req, res) {
 
                     })
                 }, function(err) {
-                    HttpHelper.error(res, err, null);
+                    HttpHelper.success(res, fixed_app, 'Returning app');
+
+                    //HttpHelper.error(res, err, "Yo");
                 }).fail(function(err) {
-                    HttpHelper.error(res, err, null);
+                    HttpHelper.success(res, fixed_app, 'Returning app');
+
+                    //HttpHelper.error(res, err, "Bo");
                     console.log(err);
                 }) ;
             } else {
@@ -117,13 +121,6 @@ module.exports.getapp = function(req, res) {
             }
         }
     });
-
-    //Sabre.get('/v1/shop/flights?origin=ORD&destination=LGA&departuredate=2015-06-29&returndate=2015-07-12', {}, function(err,data) {
-    //    console.log(data);
-    //    console.log(err);
-    //
-    //});
-
 };
 
 module.exports.get = function(req, res) {
