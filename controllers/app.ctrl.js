@@ -95,6 +95,8 @@ module.exports.getapp = function(req, res) {
                             fixed_app.attractions = attractions.slice(0,3);
                             HttpHelper.success(res, fixed_app, 'Returning app');
 
+                        }, function(err) {
+                            HttpHelper.success(res, fixed_app, 'Returning app');
                         });
                     })
                 }, function(err) {
