@@ -64,6 +64,15 @@ function fix_up(a) {
     return s;
 }
 
+function fix_itin(a) {
+    var i = 0;
+    var s = "";
+    for (i = 0; i < a.length; i++) {
+        s = s + 'Day ' + a[i].day_num + " - " + a[i].details + '\n'
+    }
+    return s;
+};
+
 module.exports.getapp = function(req, res) {
 
 
@@ -154,7 +163,7 @@ module.exports.get = function(req, res) {
                     hashcat: fix_up(app.basics && app.basics.categories || null),
                     rating: (app.meta && app.meta.rating) || null,
                     description: (app.details && app.details.description) || null,
-                    itinerary: (app.details && app.details.itinerary) || null,
+                    itinerary: fix_itin((app.details && app.details.itinerary) || null),
                     publisher: (app.basics && app.basics.publisher && app.basics.publisher.publisher_name) || null
                 }
             });
