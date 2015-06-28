@@ -147,7 +147,7 @@ module.exports.getapp = function(req, res) {
 };
 
 module.exports.get = function(req, res) {
-    App.find({}).populate('basics.publisher').exec(function(err, apps) {
+    App.find({}).sort({_id:-1}).populate('basics.publisher').exec(function(err, apps) {
         if (err || apps.length === 0) {
             HttpHelper.error(res, err || true, 'Failed to get apps');
         } else {
