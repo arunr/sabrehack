@@ -116,8 +116,11 @@
                                 </div>
                                 <hr/>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Hotels </label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" ng-model="app.details.hotels" placeholder="Hotels">
+                                    <label for="exampleInputEmail1">Hotels in </label>
+                                    <select class="form-control" ng-model="hotelva" ng-options="city for city in cities">
+
+                                    </select>
+                                    <button ng-click="getHotels()" class="btn btn-link btn-sm">Get Hotels</button>
                                 </div>
                                 <hr/>
                                 <div class="form-group">

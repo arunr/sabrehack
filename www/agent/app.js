@@ -1,5 +1,5 @@
 var sabreHack = angular.module("sabreHack", [])
-    .controller('mainCtrl', function($scope, $http) {
+    .controller('mainCtrl', function($scope, $http, $q) {
         $scope.cities =  ['AMS',
             'BCN',
             'BER',
@@ -70,6 +70,32 @@ var sabreHack = angular.module("sabreHack", [])
                 day_num:"",
                 detaisl: ""
             })
+        };
+
+        $scope.getHotels = function() {
+            console.log($scope.hotelva);
+            $scope.hotels = $scope.hotels || [];
+            $http.get('http://dev.jellyfishsurpriseparty.com/polygonToHotel/' + $scope.hotelva).then(function(data) {
+                var props = data.data.properties.splice(0,5);
+                var promises = props.map(function(h){
+                    console.log(h)
+                    return $http.get('http://dev.jellyfishsurpriseparty.com/hotel/' + h);
+                });
+                $q.all(promises).then(function(data) {
+                    var h = data.map(function(d) {
+                        return {
+                            name: d.data.hotelName,
+                            id: d.data.hotelCode
+                        }
+                    });
+                    console.log(h);
+                }, function(err) {
+                    console.log(err);
+                });
+
+            }, function(err) {
+                console.log(err);
+            });
         }
 
         $scope.removeStep = function(i) {

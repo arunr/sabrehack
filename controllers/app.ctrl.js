@@ -55,12 +55,23 @@ function get_events(location) {
     });
     return deferred.promise;
 }
+function fix_up(a) {
+    var i = 0;
+    var s = "";
+    for (i = 0; i < a.length; i++) {
+       s = s + "#" + a[i] + " ";
+    }
+    return s;
+}
 
 module.exports.getapp = function(req, res) {
+
+
     App.findOne({_id: req.params.id}).populate('basics.publisher').exec(function(err, app) {
         if (err || !app) {
             HttpHelper.error(res, err || true, 'Failed to get apps');
         } else {
+
             var fixed_app = {
                 title: (app.basics && app.basics.title),
                 hours: (app.basics && app.basics.hours) || null,
@@ -68,6 +79,7 @@ module.exports.getapp = function(req, res) {
                 type: (app.basics && app.basics.type) || null,
                 tags: (app.basics && app.basics.tags) || null,
                 categories: (app.basics && app.basics.categories) || null,
+                hashcat: fix_up(app.basics && app.basics.categories || null),
                 rating: (app.meta && app.meta.rating) || null,
                 description: (app.details && app.details.description) || null,
                 itinerary: (app.details && app.details.itinerary) || null,
@@ -139,6 +151,7 @@ module.exports.get = function(req, res) {
                     type: (app.basics && app.basics.type) || null,
                     tags: (app.basics && app.basics.tags) || null,
                     categories: (app.basics && app.basics.categories) || null,
+                    hashcat: fix_up(app.basics && app.basics.categories || null),
                     rating: (app.meta && app.meta.rating) || null,
                     description: (app.details && app.details.description) || null,
                     itinerary: (app.details && app.details.itinerary) || null,
